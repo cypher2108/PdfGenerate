@@ -1,6 +1,7 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This Program atcually takes a filename to its user and creates and Pdf with Hello world written in it for starters.
+This is the demonstration of implementation of itext library through java for creating pdf. 
 
 ## Folder Structure
 
