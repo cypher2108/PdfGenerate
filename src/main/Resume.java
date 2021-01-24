@@ -20,6 +20,8 @@ public class Resume {
 
     private String georgia = "./fonts/Georgia.ttf";
     private String georgiaBold = "./fonts/GeorgiaBold.ttf";
+    private String calibri = "./fonts/Calibri.ttf";
+    private String calibriBold = "./fonts/CalibriBold.ttf";
 
     public void createResume() throws Exception {
         
@@ -39,19 +41,22 @@ public class Resume {
         //adding a new page for us to work on.
         pdfDocument.addNewPage();
 
-        Paragraph title = new Paragraph();
-
         //creating PdfFonts object to use the font we've downloaded for our project.
         PdfFont geo = PdfFontFactory.createFont(georgia, true);
         PdfFont geoBold = PdfFontFactory.createFont(georgiaBold, true);
+        PdfFont clibri = PdfFontFactory.createFont(calibri, true);
+        PdfFont clibriBold = PdfFontFactory.createFont(calibriBold, true);
 
         //creating a custom color according to our need.
-        Color myColor = new DeviceRgb(131, 131, 131);
+        Color myColor = new DeviceRgb(89, 89, 89);
         
-        //Creating and customizing the text to add in Paragraph.
-       
+
+        Paragraph title = new Paragraph();
+        title.setMultipliedLeading(0.8f);
+
+        //Creating and customizing the text to add in Paragraph.       
         System.out.println("Enter your First Name");
-        String fName = scanner.nextLine().trim();
+        String fName = scanner.nextLine().trim().toUpperCase();
        
         Text firstName = new Text(fName);
         firstName.setFont(geo);
@@ -62,20 +67,90 @@ public class Resume {
         whiteSpace.setFontSize(35);
 
         System.out.println("Enter Your Last Name");
-        String lName = scanner.nextLine().trim();
+        String lName = scanner.nextLine().trim().toUpperCase();
 
         Text lastName = new Text(lName);
         lastName.setFont(geoBold);
         lastName.setFontSize(35);
 
-
         //adding text to paragraph.
         title.add(firstName);
         title.add(whiteSpace);
         title.add(lastName);
+        
+        //Creating and customizing the text to add in Paragraph.       
+        System.out.println("Enter your Adress");
+        String addressMeta = scanner.nextLine().trim();
+        String address = addressMeta.substring(0, 1).toUpperCase() + addressMeta.substring(1);
 
-        //setting the allignment.
+        Text userAdress = new Text(address);
+        userAdress.setFontSize(11);
+        userAdress.setFont(clibri);
+        userAdress.setFontColor(myColor);
+
+        Text seperator = new Text(" | ");
+        seperator.setFontSize(16);
+        seperator.setFont(clibri);
+        seperator.setFontColor(myColor);
+
+        Text sampleLine = new Text("\n");
+
+        System.out.println("Enter your Phone Number");
+        String phone = scanner.nextLine().trim();
+
+        Text userPhone = new Text(phone);
+        userPhone.setFontSize(11);
+        userPhone.setFont(clibri);
+        userPhone.setFontColor(myColor);
+
+        title.add(sampleLine);
+        title.add(userAdress);
+        title.add(seperator);
+        title.add(userPhone);
+
+        Color socialHandles = new DeviceRgb(29, 130, 76);
+
+        Text socialSeperator = new Text(" | ");
+        socialSeperator.setFontSize(16);
+        socialSeperator.setFont(clibriBold);
+        socialSeperator.setFontColor(socialHandles);
+
+
+        System.out.println("Enter your Email");
+        String email = scanner.nextLine().trim();
+        
+        Text userEmail = new Text(email);
+        userEmail.setFontSize(11);
+        userEmail.setFont(clibriBold);
+        userEmail.setFontColor(socialHandles);
+
+        System.out.println("Enter your GitHub Username");
+        String gitHub = scanner.nextLine().trim();
+
+        Text gitHubUsername = new Text(gitHub);
+        gitHubUsername.setFontSize(11);
+        gitHubUsername.setFont(clibriBold);
+        gitHubUsername.setFontColor(socialHandles);
+
+        System.out.println("Enter your Twitter Username");
+        String twitter = scanner.nextLine().trim();
+
+        Text twitterUsername = new Text(twitter);
+        twitterUsername.setFontSize(11);
+        twitterUsername.setFont(clibriBold);
+        twitterUsername.setFontColor(socialHandles);
+
+        title.add(sampleLine);
+        title.add(userEmail);
+        title.add(socialSeperator);
+        title.add(gitHubUsername);
+        title.add(socialSeperator);
+        title.add(twitterUsername);
+
+
         title.setTextAlignment(TextAlignment.CENTER);
+
+
 
         //initializing the pdf document object.
         Document document = new Document(pdfDocument);
