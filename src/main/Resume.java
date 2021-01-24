@@ -140,12 +140,18 @@ public class Resume {
         twitterUsername.setFont(clibriBold);
         twitterUsername.setFontColor(socialHandles);
 
+        Text header = new Text("_______________________________________________________________________________________");
+        header.setFont(clibriBold);
+
         title.add(sampleLine);
         title.add(userEmail);
         title.add(socialSeperator);
         title.add(gitHubUsername);
         title.add(socialSeperator);
         title.add(twitterUsername);
+        title.add(sampleLine);
+        title.add(sampleLine);
+        title.add(header);
 
 
         title.setTextAlignment(TextAlignment.CENTER);
