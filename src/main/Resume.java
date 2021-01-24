@@ -49,8 +49,10 @@ public class Resume {
 
         //creating a custom color according to our need.
         Color myColor = new DeviceRgb(89, 89, 89);
+        Color socialHandles = new DeviceRgb(29, 130, 76);
         
-
+// Tile paragraph code Start here ==============================================================================
+        
         Paragraph title = new Paragraph();
         title.setMultipliedLeading(0.8f);
 
@@ -108,8 +110,6 @@ public class Resume {
         title.add(seperator);
         title.add(userPhone);
 
-        Color socialHandles = new DeviceRgb(29, 130, 76);
-
         Text socialSeperator = new Text(" | ");
         socialSeperator.setFontSize(16);
         socialSeperator.setFont(clibriBold);
@@ -155,15 +155,25 @@ public class Resume {
 
 
         title.setTextAlignment(TextAlignment.CENTER);
+// Tile paragraph code ended ==============================================================================
 
+        Paragraph aboutYourself = new Paragraph();
+        aboutYourself.setMultipliedLeading(1.0f);
 
+        System.out.println("Tell us about yourself");
+        Text aboutMe = new Text(scanner.nextLine().trim());
+        aboutMe.setFontSize(11);
+        aboutMe.setFontColor(myColor);
+
+        aboutYourself.add(sampleLine);
+        aboutYourself.add(aboutMe);
 
         //initializing the pdf document object.
         Document document = new Document(pdfDocument);
         
         //adding paragraph to document.
         document.add(title);
-        
+        document.add(aboutYourself);
         document.close();
         scanner.close();
     }
