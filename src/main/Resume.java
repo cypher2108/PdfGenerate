@@ -14,7 +14,7 @@ import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.property.TextAlignment;
 
 /**
- * Resume
+ * Resume class for creating a resume in pdf format through java code.
  */
 public class Resume {
 
