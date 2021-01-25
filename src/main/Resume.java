@@ -9,7 +9,9 @@ import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.property.TextAlignment;
 
@@ -301,7 +303,16 @@ public class Resume {
         education.add(sampleLine);
         education.add(eduDescription2);
 
-        
+        //Skills======================
+        Paragraph skills = new Paragraph();
+        skills.setMultipliedLeading(1.0f);
+
+        Text bulletPoint = new Text("\u2022");
+        bulletPoint.setFont(geoBold);
+        bulletPoint.setFontSize(14);
+        bulletPoint.setFontColor(socialHandles);
+
+
 
         //initializing the pdf document object.
         Document document = new Document(pdfDocument);
@@ -311,6 +322,7 @@ public class Resume {
         document.add(aboutYourself);
         document.add(projects);
         document.add(education);
+        document.add(skills);
         document.close();
         scanner.close();
     }
