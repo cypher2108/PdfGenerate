@@ -310,24 +310,22 @@ public class Resume {
         Text skillsHeading = new Text("SKILLS");
         skillsHeading.setFont(geoBold);
         skillsHeading.setFontSize(14);
+        
+        skills.add(sampleLine);
+        skills.add(skillsHeading);
+        skills.add(sampleLine);
+        skills.add(sampleLine);
 
+        
         Text bulletPoint = new Text("\u2022");
         bulletPoint.setFont(geoBold);
         bulletPoint.setFontSize(14);
         bulletPoint.setFontColor(socialHandles);
 
-        // float [] pointColoumnWidths = {150f, 150f};
         Table skillsTable = new Table(2);
         Cell cell1 = new Cell();
         cell1.add(new Paragraph("hello"));
         skillsTable.addCell(cell1);
-
-        skills.add(sampleLine);
-        skills.add(sampleLine);
-        skills.add(skillsHeading);
-        skills.add(sampleLine);
-        // skills.add(skillsTable);
-        
 
 
         //initializing the pdf document object.
@@ -338,6 +336,7 @@ public class Resume {
         document.add(aboutYourself);
         document.add(projects);
         document.add(education);
+        document.add(skills);
         document.add(skillsTable);
         document.close();
         scanner.close();
