@@ -323,9 +323,18 @@ public class Resume {
         bulletPoint.setFontColor(socialHandles);
 
         Table skillsTable = new Table(2);
+        
         Cell cell1 = new Cell();
-        cell1.add(new Paragraph("hello"));
+        cell1.add(new Paragraph("hello1"));
         skillsTable.addCell(cell1);
+
+        Cell cell2 = new Cell();
+        cell2.add(new Paragraph("hello2"));
+        skillsTable.addCell(cell2);
+
+        Cell cell3 = new Cell();
+        cell3.add(new Paragraph("hellO3"));
+        skillsTable.addCell(cell3);
 
 
         //initializing the pdf document object.
